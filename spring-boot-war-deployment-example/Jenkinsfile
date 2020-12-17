@@ -3,23 +3,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat "mvn clean install -f cicdpipelineapp/pom.xml"
+                bat "mvn clean install -f spring-boot-war-deployment-example/pom.xml"
             }
         }
         stage('Test'){
         	steps {
-        		bat "mvn test -f cicdpipelineapp/"
+        		bat "mvn test -f spring-boot-war-deployment-example/"
         	}
         }
         stage('Package'){
         	steps {
-        		bat "mvn package -f cicdpipelineapp/"
+        		bat "mvn package -f spring-boot-war-deployment-example/"
         	}
         }
         stage('Deploy') {
             steps {
             	echo "Deploying........"
-                bat 'xcopy "C:\\Program Files (x86)\\Jenkins\\workspace\\cicd-pipeline-stages\\cicdpipelineapp\\target\\"  "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\"' 
+                bat 'copy "C:\\Program Files (x86)\\Jenkins\\workspace\\cicd-pipeline-stages\\spring-boot-war-deployment-example\\target\\"  "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\"' 
             }
         }
         
