@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
             	echo "Deploying........"
-                bat 'copy "C:\\Program Files (x86)\\Jenkins\\workspace\\cicd-pipeline-stages\\spring-boot-war-deployment-example\\target\\"  "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\"' 
+                bat 'copy "C:\\Program Files (x86)\\Jenkins\\workspace\\springbootapp\\spring-boot-war-deployment-example\\target\\"  "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\"' 
             }
         }
         
